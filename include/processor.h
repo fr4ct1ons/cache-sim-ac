@@ -11,7 +11,7 @@ namespace memsim
         private:
         int *cacheL2;
         core cores[2];
-        int L2Size;
+        int L2Size, currentCacheAddress1 = 0, currentCacheAddress2 = 0;
 
         public:
         processor(size_t L2CacheSize = DEFAULT_L2_SIZE, size_t L1CacheSize = core::DEFAULT_L1_SIZE);
@@ -19,6 +19,7 @@ namespace memsim
 
         int getL2Size();
         void writeL1(int coreNum, int address, int val);
+        void writeVal(int value, int coreNum);
     };
 
 }

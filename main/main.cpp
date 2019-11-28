@@ -3,6 +3,7 @@
 #include<vector>
 #include<cmath>
 #include"../include/processor.h"
+#include"../include/commands.h"
 
 // Splits a string s, based on the caracter c.
 std::vector<std::string> split(const std::string& s, const char& c)
@@ -29,6 +30,7 @@ std::vector<std::string> split(const std::string& s, const char& c)
 int main(int argc, char const *argv[])
 {
 
+    std::vector<int> mainMemory = std::vector<int>();
     std::vector<memsim::processor> processors;
 
     if(argc == 5)
@@ -75,7 +77,7 @@ int main(int argc, char const *argv[])
             processors = std::vector<memsim::processor>(numOfCores / 2);
             for (size_t i = 0; i < processors.size(); i++)
             {
-                processors[i] = memsim::processor(L2Size, L1Size);
+                processors[i] = memsim::processor(L1Size * 2, L1Size);
             }
             std::cout << "Finished building class!" << std::endl;
         }
@@ -86,8 +88,15 @@ int main(int argc, char const *argv[])
             std::cerr << "ERROR - Could not open file." << std::endl;
             std::exit(1);
         }
-        std::string buffer;
-        while(std::getline(file, buffer))
+
+        int bufferVal;
+        while(!file.eof())
+        {
+            file >> bufferVal;
+            mainMemory.push_back(bufferVal);
+        }
+
+        /*while(std::getline(file, buffer))
         {
             std::vector<std::string> words = split(buffer, ' ');
             if(words.empty())
@@ -132,7 +141,7 @@ int main(int argc, char const *argv[])
                     
                 }
             }
-        }
+        }*/
 
     }
     else if(argc == 2)
@@ -148,7 +157,44 @@ int main(int argc, char const *argv[])
         exit(0);
     }
 
+    bool canRun = true;
+    int operation;
 
+    while(canRun)
+    {
+        std::cout << "What do you want to do next?\n" 
+                  << "0 - Exit the program. \n"
+                  << "1 - Print a value from an address in the main memory.\n" 
+                  << "2 - Write a value from the main memory into the cache." << std::endl;
+
+        std::cin >> operation;
+
+        if(operation == EXIT)
+            exit(0);
+        else if(operation == PRINT)
+        {
+            int address;
+            std::cout << "Understood, please insert the adress you want to read from, from 0 to " << mainMemory.size() - 1 << "." << std::endl;
+            std::cin >> address;
+            std::cout << "Value: " << mainMemory[address] << std::endl;
+        }
+        else if(operation == STORE_CACHE)
+        {
+            int address, coreNum, tempCore;
+            std::cout << "Understood, please insert the adress you want to store, from 0 to " << mainMemory.size() - 1 << "." << std::endl;
+            std::cin >> address;
+            std::cout << "Value to be stored: " << mainMemory[address] << "\n"
+                      << "Now, please insert the core you want to store the value at. " << std::endl;
+            std::cin >> coreNum;
+            tempCore = coreNum;
+
+            while(coreNum > 2)
+                coreNum -= 2;
+            
+            processors[std::ceil( ((float)tempCore) /2 ) - 1].writeVal(mainMemory[address], coreNum);
+            
+        }
+    }
     
     return 0;
 }
