@@ -13,4 +13,9 @@ namespace memsim
 
     int processor::getL2Size() { return L2Size; }
 
+    void processor::writeL1(int coreNum, int address, int val)
+    {
+        cores[coreNum].setVal(address, val);
+    }
+
 } // namespace memsim

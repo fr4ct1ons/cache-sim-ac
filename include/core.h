@@ -12,6 +12,7 @@ namespace memsim
 
         public:
         core(size_t cacheSize = DEFAULT_L1_SIZE);
+        void setVal(int, int);
         static const size_t DEFAULT_L1_SIZE = 30;
     };
 
