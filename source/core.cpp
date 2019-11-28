@@ -3,7 +3,7 @@
 namespace memsim
 {
     
-    core::core(size_t cacheSize = DEFAULT_L1_SIZE)
+    core::core(size_t cacheSize)
     {
         cacheL1 = new int[cacheSize];
     }

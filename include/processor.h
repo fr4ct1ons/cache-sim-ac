@@ -9,11 +9,14 @@ namespace memsim
     class processor
     {
         private:
-        static const size_t DEFAULT_L2_SIZE = 200;
         int *cacheL2;
+        core cores[2];
+        int L2Size;
 
         public:
-        processor(size_t);
+        processor(size_t L2CacheSize = DEFAULT_L2_SIZE, size_t L1CacheSize = core::DEFAULT_L1_SIZE);
+        static const size_t DEFAULT_L2_SIZE = 200;
+        int getL2Size();
     };
 
 }
