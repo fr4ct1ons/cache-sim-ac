@@ -37,12 +37,16 @@ namespace memsim
 
     void core::updateValL1(int index, int &newVal)
     {
+        if(index >= currentAddress)
+        {
+            std::cout << "INVALID ADDRESS - This address has not been initialized yet. Number of initialized addresses: " << currentAddress << std::endl;
+        return;
+        }
         std::cout << "WRITING CACHEL1" << std::endl;
         cacheL1[index].val = newVal;
         std::cout << "WRITING MEMORY" << std::endl;
         *(cacheL1[index].mmRef) = newVal;
         std::cout << "WRITING CACHEL2" << std::endl;
-        std::cout << cacheL1[index].l2Ref << std::endl;
         cacheL1[index].l2Ref->val = newVal;
     }
 

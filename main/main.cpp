@@ -162,11 +162,13 @@ int main(int argc, char const *argv[])
 
     while(canRun)
     {
-        std::cout << "What do you want to do next?\n" 
+        std::cout << "\nWhat do you want to do next?\n" 
                   << "0 - Exit the program. \n"
                   << "1 - Print a value from an address in the main memory.\n" 
                   << "2 - Write a value from the main memory into the cache. \n" 
-                  << "3 - Update a value in the memory." << std::endl;
+                  << "3 - Update a value in the memory.\n" 
+                  << "4 - Insert a new value in the main memory.\n" 
+                  << "5 - Get the system info."<< std::endl;
 
         std::cin >> operation;
 
@@ -185,7 +187,7 @@ int main(int argc, char const *argv[])
             std::cout << "Understood, please insert the adress you want to store, from 0 to " << mainMemory.size() - 1 << "." << std::endl;
             std::cin >> address;
             std::cout << "Value to be stored: " << mainMemory[address] << "\n"
-                      << "Now, please insert the core you want to store the value at. " << std::endl;
+                      << "Now, please insert the core you want to store the value at, either 1 or 2. " << std::endl;
             std::cin >> coreNum;
             tempCore = coreNum;
 
@@ -211,6 +213,33 @@ int main(int argc, char const *argv[])
                 coreNum -= 2;
             
             processors[std::ceil( ((float)tempCore) /2 ) - 1].updateValL1(value, coreNum, address);
+        }
+        else if(operation == ADD_MAINMEMORY_VAL)
+        {
+            int value;
+            std::cout << "Understood, please insert the value you want to add to the main memory." << std::endl;
+            std::cin >> value;
+            mainMemory.push_back(value);
+            std::cout << "Inserted " << value << " at the end of the system memory." << std::endl;
+        }
+        else if(operation == GET_SYSINFO)
+        {
+            std::cout << "Number of elements in the main memory: " << mainMemory.size() << std::endl;
+            std::cout << "Elements: " << std::endl;
+            for(int v : mainMemory)
+            {
+                std::cout << v << " - ";
+            }
+            std::cout << std::endl;
+
+            int coreNum = 1;
+            for(memsim::processor proc : processors)
+            {
+                std::cout << "Number of elements inside core " << coreNum << ": " << proc.numOfElementsCache(1) << std::endl;
+                coreNum++;
+                std::cout << "Number of elements inside core " << coreNum << ": " << proc.numOfElementsCache(2) << std::endl;
+                coreNum++;                
+            }
         }
     }
     

@@ -37,7 +37,7 @@ namespace memsim
             cacheL2[currentCacheAddress2].val = value;
             cacheL2[currentCacheAddress2].mmRef = &value;
             cacheL2[currentCacheAddress2].l2Ref = &cacheL2[currentCacheAddress2];
-            cores[0].writeVal(cacheL2[currentCacheAddress2]);
+            cores[1].writeVal(cacheL2[currentCacheAddress2]);
             currentCacheAddress2++;
         }
         else
@@ -51,5 +51,12 @@ namespace memsim
         cores[coreNum - 1].updateValL1(l1Index, newVal);
     }
 
+    int processor::numOfElementsCache(int coreNum)
+    {
+        if(coreNum == 1)
+            return currentCacheAddress1;
+        else if(coreNum == 2)
+            return currentCacheAddress2 - (L2Size/2);
+    }
 
 } // namespace memsim
