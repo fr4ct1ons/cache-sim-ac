@@ -9,7 +9,7 @@ namespace memsim
     class processor
     {
         private:
-        int *cacheL2;
+        memVal *cacheL2;
         core cores[2];
         int L2Size, currentCacheAddress1 = 0, currentCacheAddress2 = 0;
 
@@ -19,7 +19,7 @@ namespace memsim
 
         int getL2Size();
         void writeL1(int coreNum, int address, int val);
-        void writeVal(int value, int coreNum);
+        void writeVal(int &value, int coreNum);
     };
 
 }

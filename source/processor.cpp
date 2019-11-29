@@ -7,7 +7,7 @@ namespace memsim
     processor::processor(size_t L2CacheSize, size_t L1CacheSize)
     {
         L2Size = L2CacheSize;
-        cacheL2 = new int[L2CacheSize];
+        cacheL2 = new memVal[L2CacheSize];
         cores[0] = core(L1CacheSize);
         cores[1] = core(L1CacheSize);
 
@@ -21,17 +21,21 @@ namespace memsim
     {
         cores[coreNum].setVal(address, val);
     }
-    void processor::writeVal(int value, int coreNum)
+    void processor::writeVal(int &value, int coreNum)
     {
         if(coreNum == 1)
         {
-            cacheL2[currentCacheAddress1] = value;
+            cacheL2[currentCacheAddress1].val = value;
+            cacheL2[currentCacheAddress1].mmRef = &value;
+            cacheL2[currentCacheAddress1].l2Ref = &cacheL2[currentCacheAddress2];
             cores[0].writeVal(value);
             currentCacheAddress1++;
         }
         else if(coreNum == 2)
         {
-            cacheL2[currentCacheAddress2] = value;
+            cacheL2[currentCacheAddress2].val = value;
+            cacheL2[currentCacheAddress2].mmRef = &value;
+            cacheL2[currentCacheAddress2].l2Ref = &cacheL2[currentCacheAddress2];
             cores[1].writeVal(value);
             currentCacheAddress2++;
         }

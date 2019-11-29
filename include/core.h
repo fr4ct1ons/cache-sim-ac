@@ -4,7 +4,8 @@
 
 typedef struct memVal
 {
-    memVal *l1Ref, *l2Ref, *mmRef;
+    memVal *l1Ref, *l2Ref;
+    int *mmRef;
     int val;
 } memVal;
 
@@ -14,7 +15,7 @@ namespace memsim
     class core
     {
         private:
-        int *cacheL1;
+        memVal *cacheL1;
         int cacheSize, currentAddress = 0;
 
         public:

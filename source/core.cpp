@@ -6,12 +6,12 @@ namespace memsim
     
     core::core(size_t newCacheSize)
     {
-        cacheL1 = new int[newCacheSize];
+        cacheL1 = new memVal[newCacheSize];
         cacheSize = newCacheSize;
     }
     void core::setVal(int address, int val)
     {
-        cacheL1[address] = val;
+        cacheL1[address].val = val;
     }
 
     void core::writeVal(int value)
@@ -21,7 +21,7 @@ namespace memsim
             std::cout << "ERROR - Cache memory full!" << std::endl;
             return;
         }
-        cacheL1[currentAddress] = value;
+        cacheL1[currentAddress].val = value;
         currentAddress++;
         if(currentAddress >= cacheSize)
         {
