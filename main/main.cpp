@@ -187,7 +187,7 @@ int main(int argc, char const *argv[])
             std::cout << "Understood, please insert the adress you want to store, from 0 to " << mainMemory.size() - 1 << "." << std::endl;
             std::cin >> address;
             std::cout << "Value to be stored: " << mainMemory[address] << "\n"
-                      << "Now, please insert the core you want to store the value at, either 1 or 2. " << std::endl;
+                      << "Now, please insert the core you want to store the value at, from 1 to " << processors.size() * 2 << "." << std::endl;
             std::cin >> coreNum;
             tempCore = coreNum;
 
@@ -235,9 +235,9 @@ int main(int argc, char const *argv[])
             int coreNum = 1;
             for(memsim::processor proc : processors)
             {
-                std::cout << "Number of elements inside core " << coreNum << ": " << proc.numOfElementsCache(1) << std::endl;
+                std::cout << "Current L1 address of core " << coreNum << ": " << proc.numOfElementsCache(1) << "/" << (proc.getL2Size()/2) - 1 << std::endl;
                 coreNum++;
-                std::cout << "Number of elements inside core " << coreNum << ": " << proc.numOfElementsCache(2) << std::endl;
+                std::cout << "Current L1 address of core " << coreNum << ": " << proc.numOfElementsCache(2) << "/" << (proc.getL2Size()/2) - 1<< std::endl;
                 coreNum++;                
             }
         }

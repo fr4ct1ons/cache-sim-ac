@@ -31,6 +31,8 @@ namespace memsim
             cacheL2[currentCacheAddress1].l2Ref = &cacheL2[currentCacheAddress2];
             cores[0].writeVal(cacheL2[currentCacheAddress1]);
             currentCacheAddress1++;
+            if(currentCacheAddress1 >= L2Size/2)
+                currentCacheAddress1 = 0;
         }
         else if(coreNum == 2)
         {
@@ -39,6 +41,8 @@ namespace memsim
             cacheL2[currentCacheAddress2].l2Ref = &cacheL2[currentCacheAddress2];
             cores[1].writeVal(cacheL2[currentCacheAddress2]);
             currentCacheAddress2++;
+            if(currentCacheAddress2 >= L2Size)
+                currentCacheAddress2 >= L2Size/2;
         }
         else
         {

@@ -16,11 +16,6 @@ namespace memsim
 
     void core::writeVal(memVal &value)
     {
-        if(currentAddress >= cacheSize)
-        {
-            std::cout << "ERROR - Cache memory full!" << std::endl;
-            return;
-        }
 
         cacheL1[currentAddress].val = value.val;
         cacheL1[currentAddress].l2Ref = value.l2Ref;
@@ -31,7 +26,8 @@ namespace memsim
 
         if(currentAddress >= cacheSize)
         {
-            std::cout << "Attention - Cache memory now full!" << std::endl;
+            std::cout << "Attention - Cache memory filled! Returning index to 0." << std::endl;
+            currentAddress = 0;
         }
     }
 
