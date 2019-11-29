@@ -20,6 +20,7 @@ namespace memsim
         int getL2Size();
         void writeL1(int coreNum, int address, int val);
         void writeVal(int &value, int coreNum);
+        void updateValL1(int &newVal, int coreNum, int l1Index);
     };
 
 }

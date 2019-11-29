@@ -165,7 +165,8 @@ int main(int argc, char const *argv[])
         std::cout << "What do you want to do next?\n" 
                   << "0 - Exit the program. \n"
                   << "1 - Print a value from an address in the main memory.\n" 
-                  << "2 - Write a value from the main memory into the cache." << std::endl;
+                  << "2 - Write a value from the main memory into the cache. \n" 
+                  << "3 - Update a value in the memory." << std::endl;
 
         std::cin >> operation;
 
@@ -193,6 +194,23 @@ int main(int argc, char const *argv[])
             
             processors[std::ceil( ((float)tempCore) /2 ) - 1].writeVal(mainMemory[address], coreNum);
             
+        }
+        else if(operation == UPDATE_CACHEL1)
+        {
+            int address, coreNum, tempCore, value;
+            std::cout << "Understood, please insert the number of the core you want to access, from 0 to " << (processors.size() * 2) - 1 << "." << std::endl;
+            std::cin >> coreNum;
+            std::cout << "Now, please insert the index of the L1 cache of the same core, from 0 to " << (processors[0].getL2Size()/2) - 1 << "." << std::endl;
+            std::cin >> address;
+            std::cout << "Finally, please insert the value you want to store." << std::endl;
+            std::cin >> value;
+
+            tempCore = coreNum;
+
+            while(coreNum > 2)
+                coreNum -= 2;
+            
+            processors[std::ceil( ((float)tempCore) /2 ) - 1].updateValL1(value, coreNum, address);
         }
     }
     

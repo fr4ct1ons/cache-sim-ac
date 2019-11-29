@@ -4,5 +4,6 @@ enum commands
 {
     EXIT = 0,
     PRINT,
-    STORE_CACHE
+    STORE_CACHE,
+    UPDATE_CACHEL1
 };

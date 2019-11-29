@@ -14,19 +14,36 @@ namespace memsim
         cacheL1[address].val = val;
     }
 
-    void core::writeVal(int value)
+    void core::writeVal(memVal &value)
     {
         if(currentAddress >= cacheSize)
         {
             std::cout << "ERROR - Cache memory full!" << std::endl;
             return;
         }
-        cacheL1[currentAddress].val = value;
+
+        cacheL1[currentAddress].val = value.val;
+        cacheL1[currentAddress].l2Ref = value.l2Ref;
+        cacheL1[currentAddress].mmRef = value.mmRef;
+        cacheL1[currentAddress].l1Ref = &cacheL1[currentAddress];
+        value.l1Ref = &cacheL1[currentAddress];
         currentAddress++;
+
         if(currentAddress >= cacheSize)
         {
             std::cout << "Attention - Cache memory now full!" << std::endl;
         }
+    }
+
+    void core::updateValL1(int index, int &newVal)
+    {
+        std::cout << "WRITING CACHEL1" << std::endl;
+        cacheL1[index].val = newVal;
+        std::cout << "WRITING MEMORY" << std::endl;
+        *(cacheL1[index].mmRef) = newVal;
+        std::cout << "WRITING CACHEL2" << std::endl;
+        std::cout << cacheL1[index].l2Ref << std::endl;
+        cacheL1[index].l2Ref->val = newVal;
     }
 
 } // namespace memsim

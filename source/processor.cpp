@@ -21,6 +21,7 @@ namespace memsim
     {
         cores[coreNum].setVal(address, val);
     }
+
     void processor::writeVal(int &value, int coreNum)
     {
         if(coreNum == 1)
@@ -28,7 +29,7 @@ namespace memsim
             cacheL2[currentCacheAddress1].val = value;
             cacheL2[currentCacheAddress1].mmRef = &value;
             cacheL2[currentCacheAddress1].l2Ref = &cacheL2[currentCacheAddress2];
-            cores[0].writeVal(value);
+            cores[0].writeVal(cacheL2[currentCacheAddress1]);
             currentCacheAddress1++;
         }
         else if(coreNum == 2)
@@ -36,7 +37,7 @@ namespace memsim
             cacheL2[currentCacheAddress2].val = value;
             cacheL2[currentCacheAddress2].mmRef = &value;
             cacheL2[currentCacheAddress2].l2Ref = &cacheL2[currentCacheAddress2];
-            cores[1].writeVal(value);
+            cores[0].writeVal(cacheL2[currentCacheAddress2]);
             currentCacheAddress2++;
         }
         else
@@ -44,5 +45,11 @@ namespace memsim
             std::cerr << "UNEXPECTED ERROR - Contact the program's creator at twitter.com/fr4ct1ons. " << std::endl;
         }
     }
+
+    void processor::updateValL1(int &newVal, int coreNum, int l1Index)
+    {
+        cores[coreNum - 1].updateValL1(l1Index, newVal);
+    }
+
 
 } // namespace memsim
