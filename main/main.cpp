@@ -29,13 +29,12 @@ std::vector<std::string> split(const std::string& s, const char& c)
 // ./cachesim.out <input file> <number of cores> <L1 size> L2 size>
 int main(int argc, char const *argv[])
 {
-
     std::vector<int> mainMemory = std::vector<int>();
     std::vector<memsim::processor> processors;
 
-    if(argc == 5)
+    if(argc == 4)
     {
-        int L1Size, L2Size, numOfCores;
+        int L1Size, numOfCores;
         // Try-catch block for getting the L1Size, L2Size and numOfCores size.
         {
             try
@@ -56,15 +55,6 @@ int main(int argc, char const *argv[])
                 std::cerr << "ERROR - Invalid value for the L1 Cache size. Please insert a number only, no text." << std::endl;
                 exit(1);
             }
-            try
-            {
-                L2Size = std::stoi(argv[4]);
-            }
-            catch(std::invalid_argument e)
-            {
-                std::cerr << "ERROR - Invalid value for the L2 Cache size. Please insert a number only, no text." << std::endl;
-                exit(1);
-            } 
         }
 
         if(numOfCores == 0 || numOfCores % 2 != 0)
