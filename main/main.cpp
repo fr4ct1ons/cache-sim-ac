@@ -85,54 +85,6 @@ int main(int argc, char const *argv[])
             file >> bufferVal;
             mainMemory.push_back(bufferVal);
         }
-
-        /*while(std::getline(file, buffer))
-        {
-            std::vector<std::string> words = split(buffer, ' ');
-            if(words.empty())
-            {
-                std::cout << "Empty line" << std::endl;
-                continue;
-            }
-            else
-            {
-                if(words[0][0] == '#')
-                {
-                    std::cout << "Skipping line." << std::endl;
-                    continue;
-                }
-                else if(words[0] == "WRITE_L1")
-                {
-                    int address, value, coreNum;
-                    try
-                    {
-                        coreNum = std::stoi(words[1]);
-                        address = std::stoi(words[2]);
-                        value = std::stoi(words[3]);
-                    }
-                    catch(std::exception& e)
-                    {
-                        std::cerr << "ERROR on line: ";
-                        for(auto val: words)
-                            std::cerr << val << " ";
-                        std::cerr <<  e.what() << std::endl;
-                    }
-                    
-                    int tempCore = coreNum;
-
-                    while(coreNum > 2)
-                        coreNum -= 2;
-
-                    processors[std::ceil( ((float)tempCore) /2 ) - 1].writeL1(coreNum - 1, address, value);
-                    
-                    std::cout << "WRITING VALUE " << value << " TO L1 OF CORE NUMBER " << coreNum << " OF PROCESSOR " << std::ceil(((float)tempCore)/2) << std::endl;
-
-                    //processors[std::ceil(tempVal/2)];
-                    
-                }
-            }
-        }*/
-
     }
     else if(argc == 2)
     {
@@ -190,7 +142,7 @@ int main(int argc, char const *argv[])
         else if(operation == UPDATE_CACHEL1)
         {
             int address, coreNum, tempCore, value;
-            std::cout << "Understood, please insert the number of the core you want to access, from 0 to " << (processors.size() * 2) - 1 << "." << std::endl;
+            std::cout << "Understood, please insert the number of the core you want to access, from 1 to " << (processors.size() * 2) << "." << std::endl;
             std::cin >> coreNum;
             std::cout << "Now, please insert the index of the L1 cache of the same core, from 0 to " << (processors[0].getL2Size()/2) - 1 << "." << std::endl;
             std::cin >> address;
@@ -225,10 +177,15 @@ int main(int argc, char const *argv[])
             int coreNum = 1;
             for(memsim::processor proc : processors)
             {
+                std::cout << "Values inside L2 of processor " << (coreNum + 1) / 2 << ":\n" << proc <<  std::endl;
+
                 std::cout << "Current L1 address of core " << coreNum << ": " << proc.numOfElementsCache(1) << "/" << (proc.getL2Size()/2) - 1 << std::endl;
+                std::cout << "Values inside L1 of core " << coreNum << ":\n" << proc.getCore(1) << std::endl;
                 coreNum++;
+
                 std::cout << "Current L1 address of core " << coreNum << ": " << proc.numOfElementsCache(2) << "/" << (proc.getL2Size()/2) - 1<< std::endl;
-                coreNum++;                
+                std::cout << "Values inside L1 of core " << coreNum << ":\n" << proc.getCore(2) << "\n" << std::endl;
+                coreNum++;        
             }
         }
     }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include<string>
+#include<iostream>
 
 typedef struct memVal
 {
@@ -24,6 +25,7 @@ namespace memsim
         static const size_t DEFAULT_L1_SIZE = 30;
         void writeVal(memVal &value);
         void updateValL1(int index, int &newVal);
+        friend std::ostream& operator<<(std::ostream &os, const core &_core);
     };
 
 }

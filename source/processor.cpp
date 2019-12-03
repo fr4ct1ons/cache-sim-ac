@@ -28,7 +28,7 @@ namespace memsim
         {
             cacheL2[currentCacheAddress1].val = value;
             cacheL2[currentCacheAddress1].mmRef = &value;
-            cacheL2[currentCacheAddress1].l2Ref = &cacheL2[currentCacheAddress2];
+            cacheL2[currentCacheAddress1].l2Ref = &cacheL2[currentCacheAddress1];
             cores[0].writeVal(cacheL2[currentCacheAddress1]);
             currentCacheAddress1++;
             if(currentCacheAddress1 >= L2Size/2)
@@ -61,6 +61,27 @@ namespace memsim
             return currentCacheAddress1;
         else if(coreNum == 2)
             return currentCacheAddress2 - (L2Size/2);
+    }
+
+    core processor::getCore(int coreNum)
+    {
+        if(coreNum == 1)
+            return cores[0];
+        else if(coreNum == 2)
+            return cores[1];
+        
+        return cores[0];
+    }
+
+    std::ostream& operator<<(std::ostream& os, processor &proc)
+    {
+        os << "{ ";
+        for (int i = 0; i < proc.L2Size - 1; i++)
+        {
+            os << proc.cacheL2[i].val << " - ";
+        }
+        os << proc.cacheL2[proc.L2Size - 1].val << " }";
+        return os;
     }
 
 } // namespace memsim

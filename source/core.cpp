@@ -46,4 +46,15 @@ namespace memsim
         cacheL1[index].l2Ref->val = newVal;
     }
 
+    std::ostream& operator<<(std::ostream &os, const core &_core)
+    {
+        os << "{ ";
+        for(int i = 0; i < _core.cacheSize - 1; i++)
+        {
+            os << _core.cacheL1[i].val << " - ";
+        }
+        os << _core.cacheL1[_core.cacheSize - 1].val << " }";
+        return os;
+    }
+
 } // namespace memsim

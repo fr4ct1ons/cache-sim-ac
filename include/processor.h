@@ -1,6 +1,7 @@
 #pragma once
 
 #include<string>
+#include<iostream>
 #include"core.h"
 
 namespace memsim
@@ -22,6 +23,8 @@ namespace memsim
         void writeVal(int &value, int coreNum);
         void updateValL1(int &newVal, int coreNum, int l1Index);
         int numOfElementsCache(int coreNum);
+        core getCore(int coreNum);
+        friend std::ostream& operator<<(std::ostream& os, processor &proc);
     };
 
 }
