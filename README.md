@@ -1,6 +1,6 @@
 # cache-sim-ac
-A simulator of memory hierarchy in a multicore processor.
-Author: Gabriel Lucena (fr4ct1ons, lucena-fr4ct1ons)
+A simulator of memory hierarchy in a multicore processor.  
+Author: Gabriel Lucena (fr4ct1ons, lucena-fr4ct1ons)  
 PT-BR: Uma tradução deste readme para PT-BR pode ser encontrado no arquivo README_PTBR.md.
 
 ## Installation
