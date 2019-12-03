@@ -1,0 +1,339 @@
+lucena@DESKTOP-4L9CD4T:/mnt/e/Lucena/Documents/Repositories/cache-sim-ac$ ./cachesim.out testInput2.dat 8 3
+Finished building class!
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+2
+Understood, please insert the adress you want to store, from 0 to 7.
+0
+Value to be stored: 4
+Now, please insert the core you want to store the value at, from 1 to 8.
+1
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+5
+Number of elements in the main memory: 8
+Elements:
+4 - 200 - 86 - 64 - 63 - 48 - 1200 - 93900491 -
+Values inside L2 of processor 1:
+{ 4 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 1: 1/2
+Values inside L1 of core 1:
+{ 4 - 0 - 0 }
+Current L1 address of core 2: 0/2
+Values inside L1 of core 2:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 2:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 3: 0/2
+Values inside L1 of core 3:
+{ 0 - 0 - 0 }
+Current L1 address of core 4: 0/2
+Values inside L1 of core 4:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 3:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 5: 0/2
+Values inside L1 of core 5:
+{ 0 - 0 - 0 }
+Current L1 address of core 6: 0/2
+Values inside L1 of core 6:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 4:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 7: 0/2
+Values inside L1 of core 7:
+{ 0 - 0 - 0 }
+Current L1 address of core 8: 0/2
+Values inside L1 of core 8:
+{ 0 - 0 - 0 }
+
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+2
+Understood, please insert the adress you want to store, from 0 to 7.
+2
+Value to be stored: 86
+Now, please insert the core you want to store the value at, from 1 to 8.
+1
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+2
+Understood, please insert the adress you want to store, from 0 to 7.
+1
+Value to be stored: 200
+Now, please insert the core you want to store the value at, from 1 to 8.
+1
+Attention - Cache memory filled! Returning index to 0.
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache. 
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+5
+Number of elements in the main memory: 8
+Elements:
+4 - 200 - 86 - 64 - 63 - 48 - 1200 - 93900491 -
+Values inside L2 of processor 1:
+{ 4 - 86 - 200 - 0 - 0 - 0 }
+Current L1 address of core 1: 0/2
+Values inside L1 of core 1:
+{ 4 - 86 - 200 }
+Current L1 address of core 2: 0/2
+Values inside L1 of core 2:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 2:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 3: 0/2
+Values inside L1 of core 3:
+{ 0 - 0 - 0 }
+Current L1 address of core 4: 0/2
+Values inside L1 of core 4:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 3:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 5: 0/2
+Values inside L1 of core 5:
+{ 0 - 0 - 0 }
+Current L1 address of core 6: 0/2
+Values inside L1 of core 6:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 4:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 7: 0/2
+Values inside L1 of core 7:
+{ 0 - 0 - 0 }
+Current L1 address of core 8: 0/2
+Values inside L1 of core 8:
+{ 0 - 0 - 0 }
+
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+2
+Understood, please insert the adress you want to store, from 0 to 7.
+3
+Value to be stored: 64
+Now, please insert the core you want to store the value at, from 1 to 8.
+1
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+5
+Number of elements in the main memory: 8
+Elements:
+4 - 200 - 86 - 64 - 63 - 48 - 1200 - 93900491 -
+Values inside L2 of processor 1:
+{ 64 - 86 - 200 - 0 - 0 - 0 }
+Current L1 address of core 1: 1/2
+Values inside L1 of core 1:
+{ 64 - 86 - 200 }
+Current L1 address of core 2: 0/2
+Values inside L1 of core 2:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 2:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 3: 0/2
+Values inside L1 of core 3:
+{ 0 - 0 - 0 }
+Current L1 address of core 4: 0/2
+Values inside L1 of core 4:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 3:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 5: 0/2
+Values inside L1 of core 5:
+{ 0 - 0 - 0 }
+Current L1 address of core 6: 0/2
+Values inside L1 of core 6:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 4:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 7: 0/2
+Values inside L1 of core 7:
+{ 0 - 0 - 0 }
+Current L1 address of core 8: 0/2
+Values inside L1 of core 8:
+{ 0 - 0 - 0 }
+
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+2
+Understood, please insert the adress you want to store, from 0 to 7.
+1
+Value to be stored: 200
+Now, please insert the core you want to store the value at, from 1 to 8.
+2
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+5
+Number of elements in the main memory: 8
+Elements:
+4 - 200 - 86 - 64 - 63 - 48 - 1200 - 93900491 -
+Values inside L2 of processor 1:
+{ 64 - 86 - 200 - 200 - 0 - 0 }
+Current L1 address of core 1: 1/2
+Values inside L1 of core 1:
+{ 64 - 86 - 200 }
+Current L1 address of core 2: 1/2
+Values inside L1 of core 2:
+{ 200 - 0 - 0 }
+
+Values inside L2 of processor 2:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 3: 0/2
+Values inside L1 of core 3:
+{ 0 - 0 - 0 }
+Current L1 address of core 4: 0/2
+Values inside L1 of core 4:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 3:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 5: 0/2
+Values inside L1 of core 5:
+{ 0 - 0 - 0 }
+Current L1 address of core 6: 0/2
+Values inside L1 of core 6:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 4:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 7: 0/2
+Values inside L1 of core 7:
+{ 0 - 0 - 0 }
+Current L1 address of core 8: 0/2
+Values inside L1 of core 8:
+{ 0 - 0 - 0 }
+
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+3
+Understood, please insert the number of the core you want to access, from 1 to 8.
+2
+Now, please insert the index of the L1 cache of the same core, from 0 to 2.
+0
+Finally, please insert the value you want to store.
+664
+WRITING CACHEL1
+WRITING MEMORY
+WRITING CACHEL2
+
+What do you want to do next?
+0 - Exit the program. 
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache. 
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
+5
+Number of elements in the main memory: 8
+Elements:
+4 - 664 - 86 - 64 - 63 - 48 - 1200 - 93900491 -
+Values inside L2 of processor 1:
+{ 64 - 86 - 200 - 664 - 0 - 0 }
+Current L1 address of core 1: 1/2
+Values inside L1 of core 1:
+{ 64 - 86 - 200 }
+Current L1 address of core 2: 1/2
+Values inside L1 of core 2:
+{ 664 - 0 - 0 }
+
+Values inside L2 of processor 2:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 3: 0/2
+Values inside L1 of core 3:
+{ 0 - 0 - 0 }
+Current L1 address of core 4: 0/2
+Values inside L1 of core 4:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 3:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 5: 0/2
+Values inside L1 of core 5:
+{ 0 - 0 - 0 }
+Current L1 address of core 6: 0/2
+Values inside L1 of core 6:
+{ 0 - 0 - 0 }
+
+Values inside L2 of processor 4:
+{ 0 - 0 - 0 - 0 - 0 - 0 }
+Current L1 address of core 7: 0/2
+Values inside L1 of core 7:
+{ 0 - 0 - 0 }
+Current L1 address of core 8: 0/2
+Values inside L1 of core 8:
+{ 0 - 0 - 0 }
+
+
+What do you want to do next?
+0 - Exit the program.
+1 - Print a value from an address in the main memory.
+2 - Write a value from the main memory into the cache.
+3 - Update a value in the memory.
+4 - Insert a new value in the main memory.
+5 - Get the system info.
