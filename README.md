@@ -1,27 +1,22 @@
 # cache-sim-ac
 A simulator of memory hierarchy in a multicore processor.
+Author: Gabriel Lucena (fr4ct1ons, lucena-fr4ct1ons)
+PT-BR: Uma tradução deste readme para PT-BR pode ser encontrado no arquivo README_PTBR.md.
 
 ## Installation
-Assuming you have the G++ compiler installed, just type `make` on the terminal in the folder containing this readme file. Afterwards, you can type make clean to remove the unecessary .o files.
+Assuming you have the G++ compiler installed, just type `make` on the terminal in the folder containing this readme file. Afterwards, you can type `make clean` to remove the unecessary .o files. Alternatively, you can type `g++ main/main.cpp source/core.cpp source/processor.cpp -I include/ -o cachesim.out` to achieve a similar effect.
 
 ## Usage
-You can run the program by typing cachesim in the terminal. Alternatively, you can run like:
-`./cachesim <inputfile> <number of cores> <L1 cache size> <L2 cache size>`
-in order to automatically open the file, set the number of cores (NOTE: the number of cores MUST be divisible by two and larger than zero) set the L1 cache size and set the L2 cache size.
+You can run the program by typing the following command in the project's root:
+`./cachesim <inputfile> <number of cores> <L1 cache size>`
+The input file must contain only numbers, which are the values to be loaded in the main memory. The number of cores must be divisible by 2. The L1 cache can be any value higher than 0. Afterwards, if the initialization is successful, you can run the program like normal.
 
-## Input file [WIP]
-
-The input file must contain the data to be set up in the simulator. For example, assuming you set up the program with 4 cores, an L1 cache of 3 numbers and an L2 cache of 6 numbers, the input can be something like this:
-```
-# lines starting with a #, like this one will be skipped
-# WRITE_L1 <core number> <address, starting at 0> <value, must be integer>
-WRITE_L1 2 0 300 # will write the value 300 in the address 0 of the L1 cache of core number 2
-# you can also put text after the command, it only reads the command and the required input!
-
-WRITE_L1 3 2 25 # will write the value 25 in the address 2 of the L1 cache of core number 3
-WRITE_L1 1 3 25 # will return an error or crash the simulation, since the L1 cache can hold 3 integers and you're trying to access a 4th one, as addresses start at 0
-```
+## Project structure
+The project is being developed in the C++ language.
+The project structure is as follows:
+include/ - Folder containing header files. Files containing the declaration of structs, classes etc must go in here.
+source/ - Must contain the implementations of the classes defined before, except for any template classes. They must go in the include folder.
+main/ - Must contain any file with a `main()` method.
 
 ## Contact
-
-You can contact me at https://twitter.com/fr4ct1ons or via https://github.com/lucena-fr4ct1ons/. Also, check out my other work!
+For any questions, you can contact me at https://twitter.com/fr4ct1ons or via https://github.com/lucena-fr4ct1ons/. Also, check out my other work!
